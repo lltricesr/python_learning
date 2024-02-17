@@ -1,4 +1,3 @@
-# _maa -> Managing Attribute Access Module
 """
 Pillars of OOP
 Abstraction -   display only basic information and hidding implementation details; only the interface
@@ -6,7 +5,15 @@ Encapsulation - 1. class instance should group related data and methods in 1 log
 #   access modifiers is how other lang use but Python doesn't follow that strict. 
 #   convention to make something private is the use of _varName; this indicates to outside users that it intent is internal only
 
+File extension: _maa -> Managing Attribute Access Module
+Module Topics:
+1. Validating Attributes Values
+2. Encapsulation and Name Mangling
+3. Accessing Attributes though Properties
+4. Setting Property Values
+5. Using Computed Properties
 """
+
 class Employee:
     def __init__(self, name, age, position, salary) -> None:
         self.name = name

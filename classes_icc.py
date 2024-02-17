@@ -1,4 +1,3 @@
-# _icc -> Instantiating Custom Classes Module
 """
 Pillars of OOP
 Abstraction -   display only basic information and hidding implementation details; only the interface
@@ -6,6 +5,14 @@ Encapsulation - 1. class instance should group related data and methods in 1 log
 #   access modifiers is how other lang use but Python doesn't follow that strict. 
 #   convention to make something private is the use of _varName; this indicates to outside users that it intent is internal only
 
+File extension: _icc -> Instantiating Custom Classes Module
+Module topics:
+1. Objects are Dictionaries
+2. Classes and Instances
+3. Passing Self to instance Methods
+4. Turning Instances to Strings
+5. Modifying Instance Representation
+6. Overview of Special Dunder Methods
 """
 # Name mangling - place 2 underscore __varName will require access of obj.__ClassName__varName
 """ 
@@ -67,6 +74,10 @@ class Employee:
         if salary < 1000:
             raise ValueError('Minimum wage is $1000')
         self._salary = salary
+
+    """
+    in order for your class to support the + operator you will need to override the dunder method __add__
+    """
 
 def print_divider():
     print('-' * 20)
