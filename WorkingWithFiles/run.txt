@@ -1,9 +1,9 @@
 M2 >>
     py "./M2_Finding_Files/listing_directory.py"
-    py "./M2_Finding_Files/02_Demo_Using_String_Methods.py"
-    py "./M2_Finding_Files/03_Demo_Pattern_Matching_with_fnmatch.py"
-    py "./M2_Finding_Files/04_Demo_Advanced_Pattern_Matching.py"
-    py "./M2_Finding_Files/05_Demo_Pattern_Matching_with_glob.py"
+    py "./M2_Finding_Files/string_methods.py"
+    py "./M2_Finding_Files/pattern_matching_fnmatch.py"
+    py "./M2_Finding_Files/adv_pattern_match_fnmatch.py"
+    py "./M2_Finding_Files/pattern_match_glob.py"
 M3 >>
     py "./M3_Working_with_Files_and_Folders/01_Demo_Getting_File_Attributes.py"
     py "./M3_Working_with_Files_and_Folders/02_Demo_Traversing_a_Directory.py"

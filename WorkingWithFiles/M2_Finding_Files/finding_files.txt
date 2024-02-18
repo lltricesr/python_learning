@@ -1,0 +1,9 @@
+"""
+Module: Finding Files
+Overview:
+    How to list a directory
+    How to uses string methods
+    Pattern matching with fnmatch
+    Advanced patter matching
+    Pattern matching with glob
+"""
