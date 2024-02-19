@@ -1,0 +1,29 @@
+Overview:
+    Usage scenaries of SQLite
+    Visual Studio Code extention
+    Python Standard Library sqlite3 module
+        Connect to a SQLite database
+        Excute SQL queries
+        Parse the results
+    Row factories
+    Build a CLI application to manage a cryptocurrency portfolio
+
+SQLite - in-memory database
+    SQLite doesn't use a server
+    CLI client opens a locally stored file
+    Use as an embedded database
+    Use during prototyping and development
+
+SQLite commands - CLI / Terminal in Visual Code 
+    sqlite3 -> start SQLite
+    .help -> provides usage hints
+    .open filename.db -> opens the db or creates the db file
+    .tables -> shows the tables in the database
+    .headers on -> display the column headers
+    .mode column -> format using columns
+    pragma table_info('table_name'); -> SQL to show table information -> DESC command?
+    .exit -> exit the sqlite3 mode 
+
+Visual Code extention
+    SQLite extention -> sqlite by alexcvzz 
+    REST API Calls -> restbook
