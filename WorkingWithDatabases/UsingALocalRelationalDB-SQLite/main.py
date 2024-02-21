@@ -108,6 +108,16 @@ def add_investment(coin_id, currency, amount, sell):
 
 """
     select investments for buy or sell
+    get current value of investments
+    coin_id -> the type of crytocurrency to invest
+    currency -> the trading currency of the investment
+    get_coin_price -> return current price value of crytocurrency from Coin Gecko
+    sql -> parameterized select query based on sell or buy
+    buy_result -> result set for all buy investments
+    sell_result -> result set for all sell investments
+    buy_amount -> sum of all buy_results amounts
+    sell_amount -> sum of all sell_results amounts
+    total -> difference of buy & sell amount of investment value for cryto in currency
 """
 @click.command()
 @click.option("--coin_id")
@@ -131,7 +141,13 @@ def get_investment_value(coin_id, currency):
     print(f"You own a total of {total} {coin_id} worth {total * coin_price} {currency.upper()}")
 
 """
-    retrieve investments from file
+    retrieve investments from cvs file
+    csv_file -> comma delimited file with listed investments to make
+    open(fn, 'r') -> open in read-only mode
+    csv:reader -> method used to read csv and return data rows as a reader
+    list(reader) -> convert reader into a list
+    sql -> parameterized insert
+    cursor:executemany() -> executes many rows at once; replace loop of 1 row at a time
 """
 @click.command()
 @click.option("--csv_file")
