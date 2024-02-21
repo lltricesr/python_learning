@@ -24,12 +24,76 @@
     CLI -> ipython to run the db command; ctrl-d to close
 
     import csv for uploading investments via file
+
+    Row Factories
+        Generic collection such as a list of tuples can be confusing to work with, particularly in a larger application.
+        using python structured objects
+            the row_factory attribute
+            sqlite3 includes the Row row factory
+            Transform a tuple into a dictionary like object
+            use a namedtuple from the collections module
+        
 """
 import sqlite3
 import requests
 import click
 import datetime
 import csv
+
+"""
+    Row Factory alternative -> Dataclasses
+    #Helper classes / data transfer object
+    class Investment:
+        def __init__(self, coin_id, currency, amount, sell, date):
+            self.coin_id = coin_id
+            self.currency = currency
+            self.amount = amount
+            self.sell = sell
+            self.date = date
+        def __repr__(self):
+            return f"<Investment {self.coin_id} {self.amount:.2f} {self.currency.upper()}>"
+
+    #Dataclass
+    from dataclasses import dataclass
+    from date import datetime
+
+    @dataclass
+    class Investment:
+        coin_id: str
+        currency: str
+        amount: float
+        sell: bool
+        date: datetime.datetime
+
+    def compute_value(self) -> float:
+        return self.amount * get_coin_price(self.coin_id, self.currency)
+
+    #Row Factory (function)
+    
+    #Inputs
+        # _ -> a cursor; but since it is not used in the function
+        # row -> a tuple representing the row
+        # return -> instantiated Investment storing all the elements of the tuple in the attributes of the class
+        # sell -> stored in db as an int 0/1; converted to False/True using the cast of bool()
+        # date -> stored in db as an str; coverted to datetime using the datetime:strptime method
+    def investment_row_factory(_, row):
+        return Investment(
+            coin_id = row[0],
+            currency = row[1],
+            amount = row[2],
+            sell = bool(row[3]),
+            date = datetime.datetime.strptime(row[4], "%Y-%m-%d %H:%M:%S.%f")
+        )
+
+    #Now set the row factory to the database obj
+    #database:row_factory -> initializes what row factory func will be used to produce the instantiated obj as row
+    #now the results of sql queries will be investment obj
+    database.row_factory = investment_row_factory
+
+    #accessing results
+        #instead of -> row[2] {aka amount} = 10.0
+        #replaced by -> row.amount = 10.0
+"""
 
 CREATE_INVESTMENTS_SQL = """
     CREATE TABLE IF NOT EXISTS investments (
